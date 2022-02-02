@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package textprocessor;
+
+option go_package = "./";
+
+message Request {
+  string body = 1;
+}
+
+message Words {
+  string word = 1;
+  int32 count = 2;
+
+}
+
+message Response {
+  repeated Words data = 1;
+}
+
+service TextProcessor {
+  rpc GetTopTenUsedWords(Request) returns (Response) {}
+}
