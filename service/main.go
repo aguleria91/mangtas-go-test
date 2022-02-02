@@ -4,16 +4,21 @@ import (
 	"log"
 	"net"
 
+	"github.com/aguleria91/mangtas-go-test/service/textprocessor"
 	"google.golang.org/grpc"
 )
 
 func main() {
-	lis, err := net.Listen("tcp", ":3000")
+	lis, err := net.Listen("tcp", ":9000")
 	if err != nil {
 		log.Fatalf("Failed to listen on pont 9000: %v", err)
 	}
 
+	s := textprocessor.Server{}
+
 	grpcServer := grpc.NewServer()
+
+	textprocessor.RegisterTextProcessorServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve grpc server over 9000: %v", err)

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package textprocessor;
 
-option go_package = "./";
+option go_package = "github.com/aguleria91/mangtas-go-test/service/text-processor.proto";
 
 message Request {
   string body = 1;
@@ -11,13 +11,12 @@ message Request {
 message Words {
   string word = 1;
   int32 count = 2;
-
 }
 
 message Response {
   repeated Words data = 1;
 }
 
-service TextProcessor {
+service TextProcessorService {
   rpc GetTopTenUsedWords(Request) returns (Response) {}
 }

@@ -3,6 +3,7 @@ module github.com/aguleria91/mangtas-go-test/service
 go 1.17
 
 require (
+	github.com/aguleria91/mangtas-go-test/client v0.0.0-20220202100548-aff665679891 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/gin-gonic/gin v1.7.7 // indirect
 	github.com/go-playground/locales v0.14.0 // indirect
